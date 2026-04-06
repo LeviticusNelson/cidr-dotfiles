@@ -2,6 +2,7 @@
 pkgs.mkShell {
   packages = with pkgs; [
     neovim
+    fish
     git
     curl
     wget
