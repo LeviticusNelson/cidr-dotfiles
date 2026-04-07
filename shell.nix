@@ -35,6 +35,6 @@ pkgs.mkShell {
   ];
 
   shellHook = ''
-    export EDITOR=nvim
+    chsh -s $(which fish)
   '';
 }
