@@ -8,3 +8,6 @@ ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
 ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
 nix-env -iA nixpkgs.myPackages
+
+which fish | sudo tee -a /etc/shells
+chsh -s "$(which fish)"
