@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SHELL_NIX="$HOME/dotfiles/shell.nix"
+
 if ! command -v nix >/dev/null 2>&1; then
   printf 'Error: nix is not installed.\n' >&2
-  printf 'Install nix first: https://nixos.org/download\n' >&2
   exit 1
 fi
 
