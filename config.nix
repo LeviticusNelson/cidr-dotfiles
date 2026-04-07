@@ -34,6 +34,7 @@
       stylua
       nil
       nixd
+      starship
     ];
     };
   };
