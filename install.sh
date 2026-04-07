@@ -1,25 +1,10 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
+export XDG_CONFIG_HOME="$HOME/.config"
+mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 
-SHELL_NIX="$HOME/dotfiles/shell.nix"
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
+ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
+ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
-if ! command -v nix >/dev/null 2>&1; then
-  printf 'Error: nix is not installed.\n' >&2
-  exit 1
-fi
-
-if ! command -v nix-shell >/dev/null 2>&1; then
-  printf 'Error: nix-shell is not available in PATH.\n' >&2
-  printf 'Install nix with nixpkgs support or enable nix-shell command.\n' >&2
-  exit 1
-fi
-
-mkdir -p "$HOME/.config"
-
-printf 'Bootstrapping with packages from shell.nix...\n'
-nix-shell "$SHELL_NIX" --run "nvim --headless '+Lazy! sync' +qa || true"
-
-printf 'Running Neovim health check in shell.nix environment...\n'
-nix-shell "$SHELL_NIX" --run "nvim --headless '+checkhealth' +qa || true"
-
-printf 'Done.\n'
+nix-env -iA nixpkgs.myPackages
