@@ -7,6 +7,6 @@ ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
 ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
-nix-env -iA nixpkgs.myPackages
+nix-env -iA nixpkgs.myPackages --priority 10
 
 sudo usermod --shell "$(which fish)" "$USER" || true
