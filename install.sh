@@ -1,4 +1,8 @@
 #!/bin/bash
+
+set -euo pipefail
+cd "$(dirname "$0")" || exit 1
+
 export XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
