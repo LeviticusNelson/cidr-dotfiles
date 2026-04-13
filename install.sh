@@ -13,8 +13,8 @@ ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 
 nix-env -iA nixpkgs.myPackages --priority 10
 
-if [ -d "$PWD/fish" ]; then
-  ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
-fi
+rm -rf "$XDG_CONFIG_HOME/fish"
+
+ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
 source "$HOME"/.bashrc
