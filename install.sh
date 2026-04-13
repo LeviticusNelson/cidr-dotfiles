@@ -15,6 +15,9 @@ nix-channel --add https://github.com/nix-community/home-manager/archive/master.t
 nix-channel --update
 nix-shell '<home-manager>' -A install || true
 
+# Source session vars so home-manager is in PATH
+. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+
 home-manager switch
 
 # devpod fix: keep bash as login shell
