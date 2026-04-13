@@ -36,6 +36,7 @@
         nixd
         starship
         atuin
+        execline
       ];
     };
   };
