@@ -3,7 +3,7 @@ set -euo pipefail
 cd "$(dirname "$0")" || exit 1
 
 export XDG_CONFIG_HOME="$HOME/.config"
-mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
+mkdir -p "$XDG_CONFIG_HOME/home-manager"
 
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
