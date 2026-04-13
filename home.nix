@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  home.username = "vscode";          # devcontainer user
+  home.homeDirectory = "/home/vscode";
+
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
