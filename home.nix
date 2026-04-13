@@ -1,9 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.username = "vscode";          # devcontainer user
+  home.username = "vscode";
   home.homeDirectory = "/home/vscode";
-
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
@@ -13,5 +12,16 @@
     luarocks lua-language-server stylua nil nixd starship atuin execline
   ];
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      atuin init fish | source
+      starship init fish | source
+      set -gx EDITOR nvim
+      set -U fish_greeting
+      set -U fish_key_bindings fish_default_key_bindings
+      set -U fish_cursor_default line
+      fish_add_path "$HOME/.local/bin"
+    '';
+  };
 }
