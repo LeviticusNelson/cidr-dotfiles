@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "vscode";
@@ -24,4 +24,5 @@
       fish_add_path "$HOME/.local/bin"
     '';
   };
+  programs.home-manager.enable = true;
 }
