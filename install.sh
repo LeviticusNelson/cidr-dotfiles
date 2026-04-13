@@ -8,7 +8,7 @@ mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
-ln -sf "$PWD/home.nix" "$XDG_CONFIG_HOME/nixpkgs/home.nix"
+ln -sf "$PWD/home.nix" "$XDG_CONFIG_HOME/home-manager/home.nix"
 
 # Install/activate home-manager (run once or as needed)
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
