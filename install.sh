@@ -13,4 +13,4 @@ ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
 nix-env -iA nixpkgs.myPackages --priority 10
 
-sudo usermod --shell "$(which fish)" "$USER" || true
+#sudo usermod --shell "$(which fish)" "$USER" || true
