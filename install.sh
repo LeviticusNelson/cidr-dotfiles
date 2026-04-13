@@ -9,9 +9,10 @@ mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
-ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 
 nix-env -iA nixpkgs.myPackages --priority 10
+
+ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
 source "$HOME"/.bashrc
