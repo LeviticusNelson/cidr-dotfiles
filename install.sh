@@ -1,18 +1,16 @@
 #!/bin/bash
-set -euo pipefail
+
+set -euox pipefail
 cd "$(dirname "$0")" || exit 1
 
 export XDG_CONFIG_HOME="$HOME/.config"
-mkdir -p "$XDG_CONFIG_HOME/home-manager"
+mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
-ln -sf "$PWD/home.nix" "$XDG_CONFIG_HOME/home-manager/home.nix"
+ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
+ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
+ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
+nix-env -iA nixpkgs.myPackages --priority 10
 
-nix-shell '<home-manager>' -A install || true
-
-. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh" 2>/dev/null || true
-
-home-manager switch
+source "$HOME"/.bashrc
