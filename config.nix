@@ -37,6 +37,7 @@
         starship
         atuin
         eza
+        infocmp
       ];
     };
   };
