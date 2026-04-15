@@ -19,7 +19,6 @@
         gopls
         golangci-lint
         delve
-        gotools
         gofumpt
         gnumake
         gcc
