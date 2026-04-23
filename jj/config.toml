@@ -7,4 +7,4 @@ email = "levi.nelson@calleridreputation.com"
 [signing]
 behavior = "own"
 backend = "ssh"
-key = "~/.ssh/git-commit-signing/coder"
+key = "~/.ssh/git-commit-signing/coder.pub"
