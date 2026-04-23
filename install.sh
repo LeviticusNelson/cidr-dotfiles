@@ -14,4 +14,8 @@ ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 
 nix-env -iA nixpkgs.myPackages --priority 10
 
+nvim --headless "+Lazy! sync" +qa
+nvim --headless "+TSUpdateSync" +qa
+nvim --headless "+MasonInstallAll" +qa 2>/dev/null || true # ignore if command missing
+
 source "$HOME"/.bashrc

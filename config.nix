@@ -37,6 +37,9 @@
         atuin
         eza
         libtinfo
+        jjui
+        jujutsu
+        hub
       ];
     };
   };
