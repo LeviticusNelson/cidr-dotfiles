@@ -17,6 +17,6 @@ nix-env -iA nixpkgs.myPackages --priority 10
 
 nvim --headless "+Lazy! sync" +qa
 nvim --headless "+TSUpdateSync" +qa
-nvim --headless "+MasonInstallAll" +qa 2>/dev/null || true # ignore if command missing
+nvim --headless -c "MasonUpdate" -c "lua require('mason-tool-installer').check_install()" +qa 2>/dev/null || true # ignore if command missing
 
 source "$HOME"/.bashrc
