@@ -1,0 +1,10 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Levi Nelson"
+email = "levi.nelson@calleridreputation.com"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/git-commit-signing/coder"
