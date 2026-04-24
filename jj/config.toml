@@ -2,9 +2,14 @@
 
 [user]
 name = "Levi Nelson"
-email = "levi.nelson@calleridreputation.com"
+email = "54561718+LeviticusNelson@users.noreply.github.com"
 
 [signing]
 behavior = "own"
 backend = "ssh"
-key = "~/.ssh/git-commit-signing/coder.pub"
+key = "~/.ssh/id_ed25519.pub"
+
+[[--scope]]
+--when.repositories = ["~/workspaces"]
+[--scope.user]
+email = "levi.nelson@calleridreputation.com"

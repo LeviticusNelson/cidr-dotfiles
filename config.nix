@@ -40,6 +40,7 @@
         jjui
         jujutsu
         hub
+        gh
       ];
     };
   };

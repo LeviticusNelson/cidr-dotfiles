@@ -12,11 +12,16 @@ ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
 ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
 ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 ln -sf "$PWD/jj" "$XDG_CONFIG_HOME/jj"
+ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
 
 nix-env -iA nixpkgs.myPackages --priority 10
 
+rm "$HOME/.config/atuin/config.toml" || true
+ln -sf "$PWD/atuin/config.toml" "$XDG_CONFIG_HOME/atuin/config.toml"
+
 nvim --headless "+Lazy! sync" +qa
-nvim --headless "+TSUpdateSync" +qa
-nvim --headless -c "MasonUpdate" -c "lua require('mason-tool-installer').check_install()" +qa 2>/dev/null || true # ignore if command missing
+nvim --headless "+TSUpdate" +qa
+nvim --headless "+MasonUpdate" +qa
 
 source "$HOME"/.bashrc
+source "$XDG_CONFIG_HOME/fish/config.fish"
