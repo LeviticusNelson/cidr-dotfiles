@@ -7,17 +7,17 @@ export XDG_CONFIG_HOME="$HOME/.config"
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 
-ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
-ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
-ln -sf "$PWD/.bashrc" "$HOME/.bashrc"
-ln -sf "$PWD/fish" "$XDG_CONFIG_HOME/fish"
-ln -sf "$PWD/jj" "$XDG_CONFIG_HOME/jj"
-ln -sf "$PWD/.gitconfig" "$HOME/.gitconfig"
+ln -sfn "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
+ln -sfn "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
+ln -sfn "$PWD/.bashrc" "$HOME/.bashrc"
+ln -sfn "$PWD/fish" "$XDG_CONFIG_HOME/fish"
+ln -sfn "$PWD/jj" "$XDG_CONFIG_HOME/jj"
+ln -sfn "$PWD/.gitconfig" "$HOME/.gitconfig"
+ln -sfn "$PWD/atuin" "$XDG_CONFIG_HOME/atuin"
 
 nix-env -iA nixpkgs.myPackages --priority 10
 
 rm "$HOME/.config/atuin/config.toml" || true
-ln -sf "$PWD/atuin/config.toml" "$XDG_CONFIG_HOME/atuin/config.toml"
 
 nvim --headless "+Lazy! sync" +qa
 nvim --headless "+TSUpdate" +qa
