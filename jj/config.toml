@@ -10,6 +10,8 @@ backend = "ssh"
 key = "~/.ssh/id_ed25519.pub"
 
 [[--scope]]
---when.repositories = ["~/workspaces"]
+--when.repositories = ["/workspaces"]
 [--scope.user]
 email = "levi.nelson@calleridreputation.com"
+[--scope.signing]
+key = "~/.ssh/git-commit-signing/coder.pub"
