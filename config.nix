@@ -4,6 +4,7 @@
     name = "levi-tools";
     paths =  [
         neovim
+        tree-sitter
         fish
         git
         curl
