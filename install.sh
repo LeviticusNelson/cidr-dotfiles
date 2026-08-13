@@ -9,7 +9,6 @@ mkdir -p "$XDG_CONFIG_HOME/nixpkgs"
 
 ln -sfn "$PWD/nvim" "$XDG_CONFIG_HOME/nvim"
 ln -sfn "$PWD/config.nix" "$XDG_CONFIG_HOME/nixpkgs/config.nix"
-ln -sfn "$PWD/.bashrc" "$HOME/.bashrc"
 ln -sfn "$PWD/fish" "$XDG_CONFIG_HOME/fish"
 ln -sfn "$PWD/jj" "$XDG_CONFIG_HOME/jj"
 ln -sfn "$PWD/.gitconfig" "$HOME/.gitconfig"
