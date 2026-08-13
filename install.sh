@@ -21,7 +21,5 @@ rm "$HOME/.config/atuin/config.toml" || true
 
 nvim --headless "+Lazy! sync" +qa
 nvim --headless "+TSUpdate" +qa
-nvim --headless "+MasonUpdate" +qa
+  nvim --headless "+MasonUpdate" +qa
 
-source "$HOME"/.bashrc
-source "$XDG_CONFIG_HOME/fish/config.fish"
