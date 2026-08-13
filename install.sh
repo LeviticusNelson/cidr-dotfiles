@@ -19,8 +19,6 @@ nix-env -iA nixpkgs.myPackages --priority 10
 
 rm "$HOME/.config/atuin/config.toml" || true
 
-nvim --headless "+Lazy! sync" +qa
-
 FISH="$(which fish)"
 CURRENT_USER="$(whoami)"
 
