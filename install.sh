@@ -21,5 +21,11 @@ rm "$HOME/.config/atuin/config.toml" || true
 
 nvim --headless "+Lazy! sync" +qa
 nvim --headless "+TSUpdate" +qa
-  nvim --headless "+MasonUpdate" +qa
+nvim --headless "+MasonUpdate" +qa
 
+FISH="$(which fish)"
+CURRENT_USER="$(whoami)"
+
+sudo chsh --shell "$FISH" "$CURRENT_USER"
+
+exit 0
