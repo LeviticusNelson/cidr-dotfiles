@@ -19,8 +19,12 @@ nix-env -iA nixpkgs.myPackages --priority 10
 
 rm "$HOME/.config/atuin/config.toml" || true
 
-FISH="$(which fish)"
+FISH="$(command -v fish)"
 CURRENT_USER="$(whoami)"
+
+if ! grep -qxF "$FISH" /etc/shells; then
+  echo "$FISH" | sudo tee -a /etc/shells >/dev/null
+fi
 
 sudo chsh --shell "$FISH" "$CURRENT_USER"
 
