@@ -27,18 +27,12 @@ packages=(
   fd-find
   fzf
   lazygit
-  golang
-  gopls
-  golangci-lint
-  delve
   make
   gcc
   nodejs
   npm
   python3
   python3-pynvim
-  docker.io
-  docker-compose
   xclip
   luarocks
   lua-language-server
@@ -50,16 +44,29 @@ packages=(
   gh
 )
 
+if ! command -v go >/dev/null; then
+  packages+=(golang gopls golangci-lint delve)
+fi
+
+if ! command -v docker >/dev/null; then
+  packages+=(docker.io docker-compose)
+fi
+
 sudo apt-get update
 
 install=()
 for pkg in "${packages[@]}"; do
+  if dpkg-query -W -f='${Status}' "$pkg" 2>/dev/null | grep -q 'install ok installed'; then
+    continue
+  fi
   if apt-cache show "$pkg" >/dev/null 2>&1; then
     install+=("$pkg")
   fi
 done
 
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "${install[@]}"
+if [ "${#install[@]}" -gt 0 ]; then
+  sudo DEBIAN_FRONTEND=noninteractive apt-get install -y "${install[@]}"
+fi
 
 if command -v fdfind >/dev/null && ! command -v fd >/dev/null; then
   ln -sfn "$(command -v fdfind)" "$HOME/.local/bin/fd"
