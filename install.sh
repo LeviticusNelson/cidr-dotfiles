@@ -14,6 +14,17 @@ ln -sfn "$PWD/jj" "$XDG_CONFIG_HOME/jj"
 ln -sfn "$PWD/.gitconfig" "$HOME/.gitconfig"
 ln -sfn "$PWD/atuin" "$XDG_CONFIG_HOME/atuin"
 
+for dir in \
+  "$XDG_CONFIG_HOME/Code/User" \
+  "$XDG_CONFIG_HOME/VSCodium/User" \
+  "$HOME/.vscode-server/data/Machine" \
+  "$HOME/.vscodium-server/data/Machine" \
+  "$HOME/.openvscode-server/data/Machine"
+do
+  mkdir -p "$dir"
+  ln -sfn "$PWD/vscode/settings.json" "$dir/settings.json"
+done
+
 packages=(
   neovim
   fish
